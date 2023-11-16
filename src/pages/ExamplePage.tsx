@@ -5,7 +5,7 @@ const ExamplePage = () => {
   const loading = useContext(LoadingContext)
 
   useEffect(() => {
-    loading.setAppLoadingHandler(false)
+    loading.setPageLoadingHandler(false)
   }, [])
 
   return (

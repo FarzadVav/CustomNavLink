@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useState } from "react";
 
 type LoadingContextTypes = {
   appLoading: boolean
@@ -21,10 +21,6 @@ type LoadingContextProviderProps = {
 export const LoadingContextProvider = ({ children }: LoadingContextProviderProps) => {
   const [appLoading, setAppLoading] = useState<boolean>(true)
   const [pageLoading, setPageLoading] = useState<boolean>(false)
-
-  useEffect(() => {
-    setAppLoadingHandler(false)
-  }, []);
 
   const setAppLoadingHandler = (status: boolean) => setAppLoading(status)
 

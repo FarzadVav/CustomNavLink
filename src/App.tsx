@@ -1,8 +1,9 @@
 import { useContext, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import { useRoutes } from "react-router-dom";
 
 import routes from "./routes";
-import LoadingContext, { LoadingContextProvider } from "./contexts/LoadingContext";
+import LoadingContext from "./contexts/LoadingContext";
 import Header from "./components/Header";
 
 const App = () => {
@@ -14,10 +15,18 @@ const App = () => {
   }, [])
 
   return (
-    <LoadingContextProvider>
+    <>
       <Header />
       {router}
-    </LoadingContextProvider>
+      {
+        (loading.appLoading || loading.pageLoading) && createPortal(
+          <>
+            <div className='loader'></div>
+          </>,
+          document.querySelector('#root')!
+        )
+      }
+    </>
   )
 }
 
