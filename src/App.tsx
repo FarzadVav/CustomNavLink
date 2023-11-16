@@ -11,7 +11,14 @@ const App = () => {
   const loading = useContext(LoadingContext)
 
   useEffect(() => {
-    loading.setAppLoadingHandler(false)
+    fetch('https://fakestoreapi.com/products')
+      .then(() => {
+        // codes...
+      })
+      .catch(() => {
+        // codes...
+      })
+      .finally(() => loading.setAppLoadingHandler(false))
   }, [])
 
   return (

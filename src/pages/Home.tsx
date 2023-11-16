@@ -5,7 +5,14 @@ const Home = () => {
   const loading = useContext(LoadingContext)
 
   useEffect(() => {
-    loading.setPageLoadingHandler(false)
+    fetch('https://fakestoreapi.com/products')
+      .then(() => {
+        // codes...
+      })
+      .catch(() => {
+        // codes...
+      })
+      .finally(() => loading.setPageLoadingHandler(false))
   }, [])
 
   return (
