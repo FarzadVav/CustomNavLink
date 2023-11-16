@@ -1,4 +1,13 @@
+import { useContext, useEffect } from 'react'
+import LoadingContext from '../contexts/LoadingContext'
+
 const ExamplePage = () => {
+  const loading = useContext(LoadingContext)
+
+  useEffect(() => {
+    loading.setAppLoadingHandler(false)
+  }, [])
+
   return (
     <div>
       <h3>

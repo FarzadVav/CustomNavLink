@@ -1,11 +1,17 @@
+import { useContext, useEffect } from 'react'
 import { useRoutes } from "react-router-dom";
 
 import routes from "./routes";
-import { LoadingContextProvider } from "./contexts/LoadingContext";
+import LoadingContext, { LoadingContextProvider } from "./contexts/LoadingContext";
 import Header from "./components/Header";
 
 const App = () => {
   const router = useRoutes(routes)
+  const loading = useContext(LoadingContext)
+
+  useEffect(() => {
+    loading.setAppLoadingHandler(false)
+  }, [])
 
   return (
     <LoadingContextProvider>
