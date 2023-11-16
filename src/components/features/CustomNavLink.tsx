@@ -1,7 +1,7 @@
 import { ReactNode, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import LoadingContext from '../contexts/LoadingContext'
+import LoadingContext from '../../contexts/LoadingContext'
 
 type CustomNavLinkProps = {
   className?: string

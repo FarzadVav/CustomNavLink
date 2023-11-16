@@ -3,8 +3,8 @@ import { useRoutes } from "react-router-dom";
 
 import routes from "./routes";
 import LoadingContext from "./contexts/LoadingContext";
-import Loader from './components/Loader';
-import Header from "./components/Header";
+import Header from "./components/ui/Header";
+import Loader from './components/features/Loader';
 
 const App = () => {
   const router = useRoutes(routes)
