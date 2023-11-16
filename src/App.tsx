@@ -1,9 +1,9 @@
 import { useContext, useEffect } from 'react'
-import { createPortal } from 'react-dom'
 import { useRoutes } from "react-router-dom";
 
 import routes from "./routes";
 import LoadingContext from "./contexts/LoadingContext";
+import Loader from './components/Loader';
 import Header from "./components/Header";
 
 const App = () => {
@@ -16,16 +16,9 @@ const App = () => {
 
   return (
     <>
+      <Loader />
       <Header />
       {router}
-      {
-        (loading.appLoading || loading.pageLoading) && createPortal(
-          <>
-            <div className='loader'></div>
-          </>,
-          document.querySelector('#root')!
-        )
-      }
     </>
   )
 }
