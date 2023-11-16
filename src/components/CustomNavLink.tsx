@@ -4,13 +4,13 @@ import { useNavigate } from 'react-router-dom'
 import LoadingContext from '../contexts/LoadingContext'
 
 type CustomNavLinkProps = {
-  className: string
-  activeClassName: string
+  className?: string
+  activeClassName?: string
   path: string
-  conditionForActive: boolean
-  conditionForAlwaysActive: boolean
-  scrollToTop: boolean
-  clickHandler: Function
+  conditionForActive?: boolean
+  conditionForAlwaysActive?: boolean
+  scrollToTop?: boolean
+  clickHandler?: Function
   children: ReactNode
 }
 
@@ -21,7 +21,7 @@ const CustomNavLink = ({
   conditionForAlwaysActive = false,
   className,
   scrollToTop = true,
-  clickHandler,
+  clickHandler = () => { },
   children
 }: CustomNavLinkProps) => {
   const loading = useContext(LoadingContext)
